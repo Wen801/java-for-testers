@@ -1,7 +1,12 @@
 package com.serenitydojo.fruitmarket;
 
+
+import org.assertj.core.api.AbstractBooleanArrayAssert;
+
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class Catalog {
 
@@ -13,6 +18,13 @@ public class Catalog {
 
     public Double getPriceOf(Fruit fruit) {
         return pricePerKilo.get(fruit);
+    }
+
+    public List<String> getAvailableFruit() {
+       return  pricePerKilo.keySet().stream()
+                .map(fruit -> fruit.name()) //could be map(Enum:name)
+               .sorted()
+               .collect(Collectors.toList());
     }
 
     public static class PriceSetter {
