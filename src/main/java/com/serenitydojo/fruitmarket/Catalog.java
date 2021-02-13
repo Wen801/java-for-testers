@@ -17,7 +17,10 @@ public class Catalog {
     }
 
     public Double getPriceOf(Fruit fruit) {
-        return pricePerKilo.get(fruit);
+        if (pricePerKilo.containsKey(fruit)) {
+            return pricePerKilo.get(fruit);
+        }
+        throw new FruitNotAvailableException(fruit.name()+" is currently not available");
     }
 
     public List<String> getAvailableFruit() {
