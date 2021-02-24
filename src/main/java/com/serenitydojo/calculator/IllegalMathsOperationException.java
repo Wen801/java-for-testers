@@ -1,8 +1,8 @@
 package com.serenitydojo.calculator;
 
-public class IllegalMathsOperatorException extends RuntimeException{
+public class IllegalMathsOperationException extends RuntimeException{
 
-    public IllegalMathsOperatorException(String message) {
+    public IllegalMathsOperationException(String message) {
         super(message);
     }
 
